@@ -1,0 +1,9 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Medical History</title></head>
+<body>
+    <h1>Medical History</h1>
+    <div th:each="item : ${box}">
+        <p th:text="${item}">History data</p>
+    </div>
+</body>
+</html>

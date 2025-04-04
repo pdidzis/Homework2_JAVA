@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Change Doctor</title></head>
+<body>
+    <h1>Change Doctor for Appointment</h1>
+    <form th:action="@{'/hospital/change-doctor/' + ${appointmentId}}" method="post">
+        <label>New Doctor Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+        <label>New Doctor Surname:</label>
+        <input type="text" th:field="*{surname}" /><br/>
+        <label>Certificate Number:</label>
+        <input type="text" th:field="*{certificateNumber}" /><br/>
+        <label>Experience (Years):</label>
+        <input type="number" th:field="*{experienceInYears}" /><br/>
+        <button type="submit">Change Doctor</button>
+    </form>
+</body>
+</html>

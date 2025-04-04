@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Add Disease History</title></head>
+<body>
+    <h1>Add Disease History for Patient</h1>
+    <form th:action="@{/hospital/add-history}" method="post">
+        <label>Patient Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+        <label>Surname:</label>
+        <input type="text" th:field="*{surname}" /><br/>
+        <label>Person Code:</label>
+        <input type="text" th:field="*{personCode}" /><br/>
+        <label>Year of Birth:</label>
+        <input type="number" th:field="*{yearOfBirth}" /><br/>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Doctors</title>
+</head>
+<body>
+    <h1>All Doctors</h1>
+
+   
+    <div th:if="${box != null}">
+        
+        <p th:if="${box instanceof T(java.lang.String)}" th:text="${box}"></p>
+        <table th:if="${box instanceof T(java.util.List)}" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Doctor Type</th>
+                    <th>Experience (Years)</th>
+                    <th>Certificate Number</th>
+                    <th>Person Code</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="doctor : ${box}">
+                    <td th:text="${doctor.id}"></td>
+                    <td th:text="${doctor.name}"></td>
+                    <td th:text="${doctor.surname}"></td>
+                    <td th:text="${doctor.doctorType}"></td>
+                    <td th:text="${doctor.experienceInYears}"></td>
+                    <td th:text="${doctor.certificateNumber}"></td>
+                    <td th:text="${doctor.personCode}"></td>
+                    <td>
+                        <a th:href="@{/doctor/show/{id}(id=${doctor.id})}">View</a> |
+                        <a th:href="@{/doctor/update/{id}(id=${doctor.id})}">Update</a> |
+                        <a th:href="@{/doctor/remove/{id}(id=${doctor.id})}">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p><a href="/doctor/add">Add New Doctor</a></p>
+</body>
+</html>

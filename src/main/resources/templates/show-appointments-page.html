@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Appointments</title>
+</head>
+<body>
+    <h1>Medical Appointments</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Cabinet</th>
+                <th>Doctor</th>
+                <th>Patient</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="appointment : ${appointments}">
+                <td th:text="${appointment.dateTime}"></td>
+                <td th:text="${appointment.cabinet}"></td>
+                <td th:text="${appointment.doctor.name + ' ' + appointment.doctor.surname}"></td>
+                <td th:text="${appointment.patient.name + ' ' + appointment.patient.surname}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a th:href="@{/hospital}">Back to Hospital Menu</a>
+</body>
+</html>

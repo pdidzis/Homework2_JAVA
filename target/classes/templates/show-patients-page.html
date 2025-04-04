@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Patients</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>All Patients</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Year of Birth</th>
+            <th>Personal Code</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="pat : ${box}">
+            <td th:text="${pat.id}">1</td>
+            <td th:text="${pat.name}">John</td>
+            <td th:text="${pat.surname}">Doe</td>
+            <td th:text="${pat.yearOfBirth}">1990</td>
+            <td th:text="${pat.personCode}">123456-78901</td>
+            <td>
+                <a th:href="@{'/hospital/appointments/patient/' + ${pat.personCode}}">View</a> |
+                <a th:href="@{'/hospital/add-appointment/' + ${pat.personCode}}">Add Appointment</a> |
+                <a th:href="@{'/hospital/edit-appointment/' + ${pat.personCode}}">Modify</a> <!-- (optional to implement) -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
